@@ -1,0 +1,952 @@
+/* --- 基本設定 --- */
+:root {
+    /* 配色変更：メリハリをつける */
+    --primary-color: #34495e;
+    /* ダークスレートブルー (ベース) */
+    --accent-color: #3498db;
+    /* ★鮮やかなブルー (アクセント/CTA用) */
+    --secondary-color: #95a5a6;
+    /* グレー (旧secondaryより少し明るめ) */
+    --heading-color: #34495e;
+    /* 見出し = ベースカラー */
+    --text-color: #333;
+    --text-light: #555;
+    --bg-color-light: #f7f9f9;
+    --bg-color-white: #fff;
+    --border-color: #e0e0e0;
+    --container-width: 1100px;
+    --base-font-size: 16px;
+}
+
+/* --- (中略: body, container, h1-h6, section, img など基本スタイルは前回同様) --- */
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    background-color: var(--bg-color-white);
+    font-size: var(--base-font-size);
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 0;
+    line-height: 1.4;
+    color: var(--heading-color);
+    font-weight: 600;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 60px;
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+section {
+    padding: 80px 0;
+}
+
+section:nth-of-type(even) {
+    background-color: var(--bg-color-light);
+}
+
+a {
+    color: var(--accent-color);
+    /* ★標準リンク色をアクセントカラーに */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #2980b9;
+    /* ★リンクホバー色 (アクセントの濃い色) */
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+/* --- ヘッダー (変更なし) --- */
+.header {
+    background-color: var(--bg-color-white);
+    padding: 20px 0;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--heading-color);
+}
+
+.nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.nav li {
+    margin-left: 30px;
+}
+
+.nav a {
+    color: var(--text-light);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.nav a:hover {
+    color: var(--primary-color);
+}
+
+/* ナビゲーションのリンクホバーはベースカラーに */
+
+.header-cta {
+    /* ヘッダーのCTAボタンは少し控えめに */
+    margin-left: 30px;
+    font-size: 0.9rem;
+    padding: 10px 18px;
+    border: 1px solid var(--accent-color);
+    /* ★枠線をアクセントカラーに */
+    color: var(--accent-color);
+    /* ★文字色をアクセントカラーに */
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.header-cta:hover {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+/* (ハンバーガーメニュー省略) */
+.hamburger-menu {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 110;
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 28px;
+    height: 2px;
+    background-color: var(--heading-color);
+    margin: 6px 0;
+    transition: all 0.3s ease-in-out;
+}
+
+
+/* --- ヒーローセクション (CTAボタン以外変更なし) --- */
+.hero {
+    background-color: var(--bg-color-white);
+    padding: 100px 0;
+    overflow: hidden;
+}
+
+.hero .container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.hero-content {
+    flex: 1.2;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.hero .sub-copy {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: var(--text-light);
+}
+
+.hero .authority {
+    font-size: 0.95rem;
+    margin-bottom: 35px;
+    color: var(--secondary-color);
+}
+
+.hero .authority span {
+    margin-right: 20px;
+    display: inline-block;
+}
+
+.hero .authority i {
+    color: var(--accent-color);
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+/* ★アイコンをアクセントカラーに */
+.hero-image {
+    flex: 1;
+    text-align: center;
+}
+
+.placeholder-image {
+    background-color: #eaf2f8;
+    width: 100%;
+    max-width: 550px;
+    height: 380px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #aab7c4;
+    font-size: 1.3rem;
+    border-radius: 8px;
+    margin: 0 auto;
+}
+
+
+/* --- CTAボタン (★メリハリ強調) --- */
+.cta-button {
+    display: inline-block;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin: 8px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button.primary {
+    background-color: var(--accent-color);
+    /* ★プライマリCTAは鮮やかなアクセントカラー */
+    color: white;
+    box-shadow: 0 4px 10px rgba(52, 152, 219, 0.4);
+    /* ★アクセントカラーに合わせた影 */
+}
+
+.cta-button.primary:hover {
+    background-color: #2980b9;
+    /* ★アクセントカラーの濃い色 */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(41, 128, 185, 0.5);
+}
+
+.cta-button.secondary {
+    background-color: var(--bg-color-white);
+    color: var(--primary-color);
+    /* ★文字色をベースカラーに */
+    border: 1px solid var(--primary-color);
+    /* ★枠線をベースカラーに */
+    box-shadow: none;
+}
+
+.cta-button.secondary:hover {
+    background-color: var(--primary-color);
+    /* ★ホバーで反転 */
+    color: white;
+    transform: translateY(-2px);
+}
+
+.cta-button.tertiary {
+    background-color: transparent;
+    color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+    box-shadow: none;
+}
+
+.cta-button.tertiary:hover {
+    background-color: var(--secondary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.cta-button.large {
+    padding: 16px 40px;
+    font-size: 1.15rem;
+}
+
+/* --- 課題提起 (アイコン色変更) --- */
+.problem {
+    background-color: var(--bg-color-light);
+}
+
+.problem-list {
+    list-style: none;
+    padding: 0;
+    max-width: 750px;
+    margin: 40px auto 50px;
+    columns: 2;
+    column-gap: 30px;
+}
+
+.problem-list li {
+    background-color: transparent;
+    border: none;
+    padding: 10px 0;
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+    color: var(--text-light);
+    display: flex;
+    align-items: flex-start;
+    break-inside: avoid-column;
+}
+
+.problem-list i {
+    color: var(--accent-color);
+    margin-right: 12px;
+    margin-top: 4px;
+    font-size: 1.2em;
+}
+
+/* ★アイコンをアクセントカラーに */
+.solution-lead {
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--heading-color);
+}
+
+/* --- サービス内容 (アイコン色変更) --- */
+.services {
+    background-color: var(--bg-color-white);
+}
+
+.services>.container>p {
+    text-align: center;
+    max-width: 600px;
+    margin: -40px auto 50px;
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+.service-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 35px;
+    margin-top: 50px;
+}
+
+.service-item {
+    background-color: var(--bg-color-white);
+    padding: 35px;
+    border-radius: 8px;
+    text-align: left;
+    border: 1px solid var(--border-color);
+    box-shadow: none;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.service-item:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-5px);
+}
+
+/* ★ホバー時の枠線をアクセントカラーに */
+.service-item .icon {
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    display: block;
+}
+
+/* ★アイコンをアクセントカラーに */
+.service-item h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: var(--heading-color);
+}
+
+.service-item p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+/* --- 強み (アイコン色変更) --- */
+.strengths {
+    background-color: var(--bg-color-light);
+}
+
+.strength-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    margin-top: 50px;
+}
+
+.strength-item {
+    text-align: center;
+    padding: 20px;
+}
+
+.strength-item .icon-large {
+    font-size: 3.5rem;
+    color: var(--accent-color);
+    margin-bottom: 25px;
+}
+
+/* ★アイコンをアクセントカラーに */
+.strength-item h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: var(--heading-color);
+}
+
+.strength-item p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+/* --- ご支援の流れ (ステップ番号の色変更) --- */
+.process {
+    background-color: var(--bg-color-white);
+}
+
+.process-steps {
+    list-style: none;
+    padding: 0;
+    max-width: 900px;
+    margin: 50px auto 0;
+    position: relative;
+    counter-reset: step-counter;
+}
+
+.process-steps::before {
+    content: '';
+    position: absolute;
+    left: 24px;
+    top: 15px;
+    bottom: 15px;
+    width: 2px;
+    background-color: var(--border-color);
+    z-index: 0;
+}
+
+.process-steps li {
+    background-color: transparent;
+    padding: 15px 0 35px 60px;
+    margin-bottom: 0;
+    box-shadow: none;
+    border-radius: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.process-steps .step-number {
+    position: absolute;
+    left: 0;
+    top: 0;
+    counter-increment: step-counter;
+    content: counter(step-counter);
+    background-color: var(--accent-color);
+    /* ★ステップ番号背景をアクセントカラーに */
+    color: white;
+    /* ★ステップ番号文字を白に */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.3rem;
+    border: 2px solid var(--accent-color);
+    /* ★枠線もアクセントカラーに */
+    z-index: 2;
+}
+
+.process-steps li:last-child::before {
+    bottom: calc(100% - 30px);
+}
+
+.process-steps h3 {
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.process-steps p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+/* --- 実績・お客様の声 (変更なし) --- */
+.casestudy {
+    background-color: var(--bg-color-light);
+}
+
+.case-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.case-item {
+    text-align: center;
+    background-color: var(--bg-color-white);
+    padding: 25px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+.placeholder-logo {
+    width: 120px;
+    height: 50px;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 15px;
+    color: #aaa;
+    border-radius: 4px;
+}
+
+.case-item p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.testimonial-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.testimonial-item {
+    background-color: var(--bg-color-white);
+    padding: 35px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    box-shadow: none;
+    position: relative;
+    padding-bottom: 60px;
+}
+
+.testimonial-item::before {
+    content: '“';
+    font-family: Georgia, serif;
+    font-size: 4rem;
+    color: var(--border-color);
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    line-height: 1;
+}
+
+.testimonial-item p {
+    margin-bottom: 20px;
+    font-style: normal;
+    font-size: 1.05rem;
+    color: var(--text-color);
+    position: relative;
+    z-index: 1;
+}
+
+.testimonial-item footer {
+    position: absolute;
+    bottom: 25px;
+    left: 35px;
+    font-weight: 600;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.placeholder-avatar {
+    width: 60px;
+    height: 60px;
+    background-color: #e0e0e0;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 25px;
+    right: 35px;
+    border: 3px solid white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.more-cases {
+    text-align: center;
+    margin-top: 60px;
+}
+
+
+/* --- クロージングCTA & フォーム (背景色・ボタン色変更) --- */
+.contact {
+    text-align: center;
+    background: var(--primary-color);
+    /* ★背景をベースのダークブルーに */
+    color: white;
+    padding: 80px 0;
+}
+
+.contact h2 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.contact p {
+    font-size: 1.15rem;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.9;
+}
+
+.final-cta {
+    margin-bottom: 50px;
+}
+
+/* このセクション内のプライマリCTAは特に目立たせる */
+.final-cta .cta-button.primary {
+    background-color: var(--accent-color);
+    /* ★鮮やかなアクセントカラー */
+    color: white;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.5);
+}
+
+.final-cta .cta-button.primary:hover {
+    background-color: #2980b9;
+    box-shadow: 0 6px 18px rgba(41, 128, 185, 0.6);
+}
+
+/* このセクション内のセカンダリCTA (白背景にダークブルー文字/枠線) */
+.final-cta .cta-button.secondary {
+    background-color: var(--bg-color-white);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    box-shadow: none;
+}
+
+.final-cta .cta-button.secondary:hover {
+    background-color: var(--bg-color-light);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.contact-info {
+    margin-bottom: 50px;
+    opacity: 0.9;
+}
+
+.contact-info a {
+    color: white;
+    font-weight: 600;
+}
+
+.contact-info i {
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+/* フォーム部分は変更なし */
+.contact-form {
+    max-width: 700px;
+    margin: 60px auto 0;
+    background-color: var(--bg-color-white);
+    padding: 50px;
+    border-radius: 8px;
+    text-align: left;
+    color: var(--text-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h3 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.6rem;
+    color: var(--heading-color);
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
+    outline: none;
+}
+
+/* ★フォーカス色変更 */
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-group .required {
+    color: #e74c3c;
+    margin-left: 5px;
+    font-size: 0.85em;
+    font-weight: normal;
+}
+
+.contact-form button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    font-size: 1.1rem;
+    margin-top: 20px;
+}
+
+/* ボタンは .cta-button.primary を継承 */
+
+
+/* --- フッター (変更なし) --- */
+.footer {
+    background-color: var(--heading-color);
+    color: #bdc3c7;
+    padding: 40px 0;
+    font-size: 0.9rem;
+}
+
+.footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-info {
+    text-align: left;
+}
+
+.footer-info .company-name {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: var(--bg-color-white);
+}
+
+.footer-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.footer-nav li {
+    margin-left: 20px;
+}
+
+.footer-nav a {
+    color: #bdc3c7;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: white;
+}
+
+.copyright {
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.85em;
+    color: #95a5a6;
+}
+
+/* --- レスポンシブ対応 (省略 - 前回同様) --- */
+@media (max-width: 992px) {
+    .strength-items {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* (省略 - 前回同様のモバイルスタイル適用) */
+    h1 {
+        font-size: 2.4rem;
+    }
+
+    h2 {
+        font-size: 1.9rem;
+    }
+
+    section {
+        padding: 50px 0;
+    }
+
+    .nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(5px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 15px 0;
+        border-top: 1px solid var(--border-color);
+        z-index: 100;
+    }
+
+    .nav.active {
+        display: block;
+    }
+
+    .nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav li {
+        margin: 12px 0;
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+
+    .hamburger-menu.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger-menu.active span:nth-child(2) {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+
+    .hamburger-menu.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .hero .container {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .hero-content {
+        margin-top: 40px;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero .sub-copy {
+        font-size: 1.1rem;
+    }
+
+    .placeholder-image {
+        height: 250px;
+    }
+
+    .problem-list {
+        columns: 1;
+    }
+
+    .service-items,
+    .testimonial-items,
+    .case-items {
+        grid-template-columns: 1fr;
+    }
+
+    .process-steps::before {
+        left: 14px;
+    }
+
+    .process-steps li {
+        padding-left: 45px;
+    }
+
+    .process-steps .step-number {
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+        left: 0;
+    }
+
+    .contact-form {
+        padding: 30px 20px;
+    }
+
+    .footer .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-nav ul {
+        justify-content: center;
+        margin-top: 15px;
+    }
+
+    .footer-nav li:first-child {
+        margin-left: 0;
+    }
+
+    .copyright {
+        margin-top: 20px;
+    }
+
+    .sp-only {
+        display: block;
+    }
+}
+
+/* Font Awesome アイコンを使う場合 */
+/* @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css'); */
+
+/* デフォルトでは非表示 */
+.sp-only {
+    display: none;
+}
